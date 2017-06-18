@@ -1,0 +1,19 @@
+{
+  "name": "tsmysql",
+  "version": "1.0.0",
+  "description": "A database layer for a mysql database written in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bersling/typescript-mysql-module.git"
+  },
+  "author": "Daniel Niederberger <bersling@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bersling/typescript-mysql-module/issues"
+  },
+  "homepage": "https://github.com/bersling/typescript-mysql-module#readme"
+}
