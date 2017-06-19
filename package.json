@@ -1,5 +1,5 @@
 {
-  "name": "tsmysql",
+  "name": "@tsmean/mysql",
   "version": "1.0.3",
   "description": "A database layer for a mysql database written in typescript",
   "main": "dist/index.js",
