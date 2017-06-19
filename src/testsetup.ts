@@ -48,7 +48,7 @@ function createDatabase (con: IConnection): Promise<any> {
 }
 
 
-function dropDatabase(con): Promise<MysqlSuccess> {
+function dropDatabase(con): Promise<any> {
   const sql = `DROP DATABASE ??`;
 
 
