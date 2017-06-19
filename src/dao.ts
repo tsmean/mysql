@@ -4,7 +4,6 @@ import {
   CreateResponse, DatabaseError, DatabaseResponse, MysqlSuccess,
   UpdateResponse
 } from './database-response.model';
-import {Cursor, MongoCallback, MongoClient, MongoError} from 'mongodb';
 import {type} from 'os';
 import {IConnection, IError} from 'mysql';
 
@@ -264,14 +263,6 @@ export namespace dao {
       }
 
     });
-  }
-
-
-  function mongoErrorToGeneralDbError (err: MongoError): DatabaseError {
-    return {
-      code: err.code,
-      message: err.message
-    };
   }
 
   function morphDataOnRetrieval(data) {
