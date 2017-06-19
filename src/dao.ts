@@ -1,9 +1,8 @@
 import * as mysql from 'mysql';
 import {database} from './database';
 import {
-  CreateResponse, DatabaseError, DatabaseResponse, MysqlSuccess,
-  UpdateResponse
-} from './database-response.model';
+  CreateResponse, DatabaseError, DatabaseResponse, UpdateResponse
+} from '@tsmean/dbadapter';
 import {type} from 'os';
 import {IConnection, IError} from 'mysql';
 
@@ -185,7 +184,7 @@ export namespace dao {
 
     database.database.query(sql,
       [tableName, ...mergedArray, id],
-      (err: mysql.IError, updateResponseFromDatabase: MysqlSuccess) => {
+      (err: mysql.IError, updateResponseFromDatabase) => {
 
       if (err) {
         cb({
@@ -239,7 +238,7 @@ export namespace dao {
   export function remove(id, tableName: string, cb: (dbResp: DatabaseResponse<any>) => void): void {
 
     const sql = `DELETE FROM ?? WHERE _id=?`;
-    database.database.query(sql, [tableName, id], (err, data: MysqlSuccess) => {
+    database.database.query(sql, [tableName, id], (err, data) => {
 
       if (err) {
         cb({

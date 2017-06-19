@@ -1,6 +1,6 @@
 import * as mysql from 'mysql';
 import {IConnection, IConnectionConfig} from 'mysql';
-import {DatabaseConfig} from './database-config.model';
+import {DatabaseConfig} from '@tsmean/dbadapter';
 
 export class Database {
 

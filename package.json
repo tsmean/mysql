@@ -24,15 +24,16 @@
   },
   "homepage": "https://github.com/bersling/typescript-mysql-module#readme",
   "dependencies": {
+    "@tsmean/dbadapter": "^1.0.6",
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
     "mocha": "^3.4.2",
     "mysql": "^2.13.0"
   },
   "devDependencies": {
-    "@types/mysql": "^0.0.33",
     "@types/chai": "^4.0.0",
     "@types/mocha": "^2.2.41",
+    "@types/mysql": "^0.0.33",
     "ts-node": "^3.0.6",
     "typescript": "^2.3.4"
   }

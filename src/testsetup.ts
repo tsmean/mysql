@@ -2,8 +2,7 @@ import {database} from './database';
 import * as mysql from 'mysql';
 
 import {IConnection} from 'mysql';
-import {MysqlSuccess} from './database-response.model';
-import {DatabaseConfig} from './database-config.model';
+import {DatabaseConfig} from '@tsmean/dbadapter';
 
 
 export namespace setupTests {
@@ -35,7 +34,7 @@ function getNewConnection(): Promise<IConnection> {
   return database.connectToDatabase(getConfig());
 }
 
-function createDatabase (con: IConnection): Promise<MysqlSuccess> {
+function createDatabase (con: IConnection): Promise<any> {
   return new Promise((resolve, reject) => {
 
     con.query(`CREATE DATABASE ??`, [getConfig().dbname], (err, result) => {

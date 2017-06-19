@@ -1,7 +1,7 @@
 import * as mocha from 'mocha';
 import * as chai from 'chai';
 import {dao} from './dao';
-import {DatabaseResponse} from './database-response.model';
+import {DatabaseResponse} from '@tsmean/dbadapter';
 import readAll = dao.readAll;
 import {setupTests} from './testsetup';
 const expect = chai.expect;
