@@ -4,7 +4,13 @@
   "description": "A database layer for a mysql database written in typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pub": "git add --all && git commit -m 'update' && git push && npm version patch && npm publish",
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "mocha --reporter spec --timeout 15000  --compilers ts:ts-node/register 'src/**/*.test.ts'",
+    "windows_test": "mocha --reporter spec --timeout 15000 --compilers ts:ts-node/register 'src/**\\*.test.ts'",
+    "spec": "mocha --reporter spec --compilers ts:ts-node/register --grep ${TEST} 'src/**/*.test.ts'",
+    "lint": "tslint src/**/*.ts"
   },
   "repository": {
     "type": "git",

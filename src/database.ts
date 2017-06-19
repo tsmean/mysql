@@ -1,10 +1,8 @@
 import * as mysql from 'mysql';
-import * as mysql2 from 'mysql2';
-import {log} from '../logger/logger';
-import {AppProperties} from '../config/app-properties.model';
 import {IConnection, IConnectionConfig} from 'mysql';
+import {DatabaseConfig} from './database-config.model';
 
-class Database {
+export class Database {
 
   private _database: IConnection;
 
@@ -15,15 +13,15 @@ class Database {
     return this._database;
   }
 
-  private genericConnector(appConfig: AppProperties, nospecificdb: boolean): Promise<IConnection> {
+  private genericConnector(dbConfig: DatabaseConfig, nospecificdb: boolean): Promise<IConnection> {
 
     // Connect to the db
     const connectionConfig: IConnectionConfig = {
-      host: appConfig.db.host,
-      user: appConfig.db.dbuser,
-      password: appConfig.db.dbpassword,
-      database: appConfig.db.dbname,
-      port: appConfig.db.port
+      host: dbConfig.host,
+      user: dbConfig.dbuser,
+      password: dbConfig.dbpassword,
+      database: dbConfig.dbname,
+      port: dbConfig.port
     };
     if (nospecificdb) {
       delete connectionConfig.database;
@@ -45,12 +43,12 @@ class Database {
 
   }
 
-  public connectToDatabase (appConfig: AppProperties): Promise<IConnection> {
-    return this.genericConnector(appConfig, false);
+  public connectToDatabase (dbConfig: DatabaseConfig): Promise<IConnection> {
+    return this.genericConnector(dbConfig, false);
   };
 
-  public connectToNoSpecificDatabase (appConfig: AppProperties): Promise<IConnection> {
-    return this.genericConnector(appConfig, true);
+  public connectToNoSpecificDatabase (dbConfig: DatabaseConfig): Promise<IConnection> {
+    return this.genericConnector(dbConfig, true);
   };
 
 }

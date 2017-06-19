@@ -1,14 +1,14 @@
 import * as mocha from 'mocha';
 import * as chai from 'chai';
 import {dao} from './dao';
-import {beforeEachDo} from '../test/before-eachs';
 import {DatabaseResponse} from './database-response.model';
 import readAll = dao.readAll;
+import {setupTests} from './testsetup';
 const expect = chai.expect;
 
 describe('DAO', () => {
 
-  beforeEachDo.connectTestToDatabase();
+  setupTests.connectTestToDatabase();
 
   it ('should be able to create', (done) => {
     const user = {

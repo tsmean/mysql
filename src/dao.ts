@@ -1,12 +1,10 @@
 import * as mysql from 'mysql';
 import {database} from './database';
-import {log} from '../logger/logger';
 import {
-  CreateResponse, DatabaseError, DatabaseResponse, DeleteResponse, MysqlSuccess,
+  CreateResponse, DatabaseError, DatabaseResponse, MysqlSuccess,
   UpdateResponse
 } from './database-response.model';
 import {Cursor, MongoCallback, MongoClient, MongoError} from 'mongodb';
-import {utils} from '../utils/utils';
 import {type} from 'os';
 import {IConnection, IError} from 'mysql';
 
@@ -239,7 +237,7 @@ export namespace dao {
   }
 
 
-  export function remove(id, tableName: string, cb: (dbResp: DatabaseResponse<DeleteResponse>) => void): void {
+  export function remove(id, tableName: string, cb: (dbResp: DatabaseResponse<any>) => void): void {
 
     const sql = `DELETE FROM ?? WHERE _id=?`;
     database.database.query(sql, [tableName, id], (err, data: MysqlSuccess) => {
@@ -276,14 +274,14 @@ export namespace dao {
     };
   }
 
-  function morphDataOnRetrieval(data, logme?: boolean) {
+  function morphDataOnRetrieval(data) {
 
     if (!data) {
-      log.error('No data!');
+      console.error('No data!');
       return;
     }
 
-    const dataCopy = utils.deepCopyData(data);
+    const dataCopy = JSON.parse(JSON.stringify(data));
 
     const morphResource = (resource): void => {
       resource.uid = resource._id;
@@ -303,7 +301,7 @@ export namespace dao {
   };
 
   function morphDataOnStorage(data) {
-    const dataCopy = utils.deepCopyData(data);
+    const dataCopy = JSON.parse(JSON.stringify(data));
     dataCopy._id = data.uid;
     delete dataCopy.uid;
     return dataCopy;
