@@ -1,6 +1,6 @@
 {
   "name": "tsmysql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A database layer for a mysql database written in typescript",
   "main": "index.js",
   "scripts": {
