@@ -55,13 +55,7 @@ function dropDatabase(con): Promise<MysqlSuccess> {
 
   return new Promise((resolve, reject) => {
     con.query(sql, [getConfig().dbname], (err, result) => {
-
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-
+      resolve(result);
     });
   });
 
