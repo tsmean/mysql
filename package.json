@@ -2,7 +2,8 @@
   "name": "tsmysql",
   "version": "1.0.2",
   "description": "A database layer for a mysql database written in typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
   "scripts": {
     "pub": "git add --all && git commit -m 'update' && git push && npm version patch && npm publish",
     "prepublish": "npm run build",
