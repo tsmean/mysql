@@ -1,1 +1,1 @@
-Authentication module for written in typescript, built on bcrypt and passportjs.
+Module to connect to MySQL database and perform access operations.
