@@ -8,8 +8,8 @@
     "pub": "git add --all && git commit -m 'update' && git push && npm version patch && npm publish",
     "prepare": "npm run build",
     "build": "tsc",
-    "test": "$(npm bin)/mocha --reporter spec --timeout 20000  --compilers ts:ts-node/register 'src/**/*.test.ts'",
-    "windows_test": "mocha --reporter spec --timeout 20000 --compilers ts:ts-node/register **\\*.test.ts",
+    "test": "$(npm bin)/mocha --reporter spec --timeout 30000  --compilers ts:ts-node/register 'src/**/*.test.ts'",
+    "windows_test": "mocha --reporter spec --timeout 30000 --compilers ts:ts-node/register **\\*.test.ts",
     "spec": "$(npm bin)/mocha --reporter spec --compilers ts:ts-node/register --grep ${TEST} 'src/**/*.test.ts'",
     "lint": "tslint src/**/*.ts"
   },
