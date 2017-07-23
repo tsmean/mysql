@@ -9,7 +9,7 @@
     "prepare": "npm run build",
     "build": "tsc",
     "test": "$(npm bin)/mocha --reporter spec --timeout 15000  --compilers ts:ts-node/register 'src/**/*.test.ts'",
-    "windows_test": "$(npm bin)/mocha --reporter spec --timeout 15000 --compilers ts:ts-node/register 'src/**\\*.test.ts'",
+    "windows_test": "mocha --reporter spec --timeout 15000 --compilers ts:ts-node/register 'src/**\\*.test.ts'",
     "spec": "$(npm bin)/mocha --reporter spec --compilers ts:ts-node/register --grep ${TEST} 'src/**/*.test.ts'",
     "lint": "tslint src/**/*.ts"
   },
